@@ -29,7 +29,7 @@ data <- mutate(data,
                Sub_metering_3=as.numeric(Sub_metering_3))
 
 # OPEN png graphics device
-png(filename="plot3.png", width=480, height=480)
+png(filename="plot3.png",bg="transparent")
 # being explicit about width and height being 480 x 480
 
 # PLOT TIME SERIES
@@ -47,6 +47,8 @@ lines(1:len,data$Sub_metering_3,col="blue")
 axis(1,c(1,len/2,len),c("Thu","Fri","Sat"))
 
 # Add legend
+# look at cex -- character expansion factor
+# reduce size of legend text
 legend("topright",lty="solid",
        col=c("black","red","blue"),
        legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
