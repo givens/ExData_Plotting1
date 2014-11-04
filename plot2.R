@@ -26,8 +26,7 @@ data <- filter(data,grepl("[12]/2/2007",data$Date))
 data <- mutate(data,Global_active_power=as.numeric(Global_active_power))
 
 # OPEN png graphics device
-png(filename="plot2.png", width=480, height=480)
-# being explicit about width and height being 480 x 480
+png(filename="plot2.png", bg="transparent")
 
 # PLOT TIME SERIES
 len = nrow(data)
