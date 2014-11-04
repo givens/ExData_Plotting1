@@ -19,7 +19,7 @@ data <- read.csv("./household_power_consumption.txt",nrows=70000,sep=";",
                  stringsAsFactors=F)
 
 # FILTER RELEVANT ROWS using regex
-data <- filter(data,grepl("[12]/2/2007",data[["Date"]]))
+data <- filter(data,grepl("[12]/2/2007",data$Date))
 
 # SELECT RELEVANT COL
 #data <- select(data,Global_active_power)
