@@ -30,6 +30,7 @@ data <- mutate(data,
 
 # OPEN png graphics device
 png(filename="plot3.png", width=480, height=480)
+# being explicit about width and height being 480 x 480
 
 # PLOT TIME SERIES
 len = nrow(data)
