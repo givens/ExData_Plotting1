@@ -22,12 +22,12 @@ data <- read.csv("./household_power_consumption.txt",nrows=70000,sep=";",
 # FILTER RELEVANT ROWS using regex
 data <- filter(data,grepl("[12]/2/2007",data$Date))
 
-# # SELECT RELEVANT COL
-# data <- select(data,Global_active_power)
-# unnecessary?
-
 # MUTATE THIS COL TO NUMERIC
 data <- mutate(data,Global_active_power=as.numeric(Global_active_power))
+
+# OPEN png graphics device
+png(filename="plot2.png", width=480, height=480)
+# being explicit about width and height being 480 x 480
 
 # PLOT TIME SERIES
 len = nrow(data)
@@ -41,5 +41,4 @@ axis(1,c(1,len/2,len),c("Thu","Fri","Sat"))
 #box()
 
 # SAVE png file
-dev.copy(png,file="plot2.png")
 dev.off()
