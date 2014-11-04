@@ -28,6 +28,9 @@ data <- mutate(data,
                Sub_metering_2=as.numeric(Sub_metering_2),
                Sub_metering_3=as.numeric(Sub_metering_3))
 
+# OPEN png graphics device
+png(filename="plot3.png", width=480, height=480)
+
 # PLOT TIME SERIES
 len = nrow(data)
 plot(1:len,data$Sub_metering_1,
@@ -44,9 +47,8 @@ axis(1,c(1,len/2,len),c("Thu","Fri","Sat"))
 
 # Add legend
 legend("topright",lty="solid",
-       col=c("black","blue","red"),
+       col=c("black","red","blue"),
        legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 
 # SAVE png file
-dev.copy(png,file="plot3.png")
 dev.off()
