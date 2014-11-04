@@ -1,5 +1,6 @@
 # Exploratory Data Analysis
 # Course Project 1
+# Plot 1
 # Make red histogram using global active power data
 # Givens, 04Nov2014
 
@@ -21,13 +22,14 @@ data <- read.csv("./household_power_consumption.txt",nrows=70000,sep=";",
 data <- filter(data,grepl("[12]/2/2007",data[["Date"]]))
 
 # SELECT RELEVANT COL
-data <- select(data,Global_active_power)
+#data <- select(data,Global_active_power)
+# unnecessary?
 
 # MUTATE THIS COL TO NUMERIC
 data <- mutate(data,Global_active_power=as.numeric(Global_active_power))
 
 # PLOT histogram
-hist(data[,1],
+hist(data$Global_active_power,
      xlab="Global Active Power (kilowatts)",
      ylab="Frequency",
      main="Global Active Power",
