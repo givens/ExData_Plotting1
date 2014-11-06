@@ -43,13 +43,13 @@ data <- mutate(data,Global_active_power=as.numeric(Global_active_power))
 # data point.
 
 # OPEN png graphics device
-png(filename="plot2.png",width=480,height=480,bg="transparent")
+png(filename="./plot2.png",width=480,height=480,bg="transparent")
 
 # PLOT TIME SERIES
 len = nrow(data)
 plot(1:len,data$Global_active_power,
      type="l",
-     xlab="",
+     xlab=NA,
      ylab="Global Active Power (kilowatts)",
      xaxt="n")
 axis(1,c(1,len/2+1,len+1),c("Thu","Fri","Sat"))
