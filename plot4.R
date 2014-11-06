@@ -5,7 +5,7 @@
 # Givens, 04Nov2014
 
 # LIBRARIES
-# dplyr is assumed to be an installed package
+# dplyr is ASSUMED to be an installed package
 library(dplyr)
 
 # DOWNLOAD DATA FILE
@@ -31,41 +31,49 @@ data <- mutate(data,
                Sub_metering_2=as.numeric(Sub_metering_2),
                Sub_metering_3=as.numeric(Sub_metering_3))
 
-# Do quartz
-#quartz(bg="transparent")
+# WHAT I NOTICE about Roger Peng's 4th Plot
+# Background is transparent.
+# Plot is 2x2 subplots.
+# Label text has a cex of 1.0.
+# Axis text has a cex of 1.0.
+# Legend text has a cex of 1.0.
+# Legend does not have border.
+# Some labels have changed.
+
+# A NOTE ABOUT X-AXIS
+# The x-axis is Thu, Fri, and Sat.
+# The starting points are
+# THURSDAY at 1
+# FRIDAY at 1441
+# SATURDAY at 2881
+# where the number of data points is 2880.
+# I confirmed Thursday and Friday start at these rows.
+# Saturday starts outside the range because the data
+# is Thursday and Friday only. Saturday is the next
+# data point.
 
 # png graphics device
 png(filename="plot4.png", width=480, height=480,bg="transparent")
 
-# Start Plotting
+# Start Plotting 2x2
 par(mfcol=c(2,2),
-    cex.lab=0.8,
-    cex.axis=0.8,
+    cex.lab=1.0,
+    cex.axis=1.0,
     pty="m")
-
-# Some changes:
-# change background color to gray
-# reduce margin sizes:  mar, omi
-# reduce text sizes on x- and y-labels:  cex.lab
-# reduce text size on axis:  cex.axis
-# reduce text size on legend: cex
-# remove black line around legend:  bty="n"
-# change plot's length to width ratio
-
-# plot 1,1
-# note change in y-label
 len = nrow(data)
+
+# PLOT 1,1
+# note change in y-label
 plot(1:len,data$Global_active_power,
      type="l",
      xlab=NA,
      ylab="Global Active Power",
      xaxt="n")
 axis(1,
-     c(1,len/2,len),
+     c(1,len/2+1,len+1),
      c("Thu","Fri","Sat"))
 
-# plot 2,1
-len = nrow(data)
+# PLOT 2,1
 plot(1:len,data$Sub_metering_1,
      xlab=NA,
      ylab="Energy sub metering",
@@ -77,7 +85,7 @@ lines(1:len,data$Sub_metering_3,col="blue")
 
 # Label X axis
 axis(1,
-     c(1,len/2,len),
+     c(1,len/2+1,len+1),
      c("Thu","Fri","Sat"))
 
 # Add legend
@@ -86,36 +94,27 @@ legend("topright",
        bty="n",
        col=c("black","red","blue"),
        legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
-       cex=0.9)
+       cex=1.00)
 
-# reduce margin sizes
-# reduce text sizes on x- and y-labels
-# make plots wider
-
-
-# plot 1,2
-len = nrow(data)
+# PLOT 1,2
 plot(1:len,data$Voltage,
      type="l",
      xlab="datetime",
      ylab="Voltage",
      xaxt="n")
 axis(1,
-     c(1,len/2,len),
+     c(1,len/2+1,len+1),
      c("Thu","Fri","Sat"))
 
-# plot 2,2
+# PLOT 2,2
 plot(1:len,data$Global_reactive_power,
      type="l",
      xlab="datetime",
      ylab="Global_reactive_power",
-     cex.axis=0.8,
-     cex.lab=0.8,
      xaxt="n")
 axis(1,
-     c(1,len/2,len),
-     c("Thu","Fri","Sat"),
-     cex.axis=0.8)
+     c(1,len/2+1,len+1),
+     c("Thu","Fri","Sat"))
 
 # close device
 dev.off()
