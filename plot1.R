@@ -2,10 +2,9 @@
 # Course Project 1
 # Plot 1
 # Make red histogram using global active power data
-# Givens, 04Nov2014
 
 # LIBRARIES
-# dplyr is assumed to be an installed package
+# dplyr is ASSUMED to be an installed package
 library(dplyr)
 
 # DOWNLOAD DATA FILE
@@ -25,7 +24,13 @@ data <- filter(data,grepl("[12]/2/2007",data$Date))
 data <- mutate(data,Global_active_power=as.numeric(Global_active_power))
 
 # OPEN png graphics device
-png(filename="plot1.png", bg="transparent")
+png(filename="./plot1.png",width=480,height=480,bg="transparent")
+
+# WHAT I NOTICE about Roger Peng's 1st Plot
+# Histogram with red bars
+# X-label exists
+# Y-label exists
+# Title exists
 
 # PLOT histogram
 hist(data$Global_active_power,
