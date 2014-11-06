@@ -2,7 +2,6 @@
 # Course Project 1
 # Plot 4
 # Plot two-by-two grid of plots
-# Givens, 04Nov2014
 
 # LIBRARIES
 # dplyr is ASSUMED to be an installed package
@@ -53,7 +52,7 @@ data <- mutate(data,
 # data point.
 
 # png graphics device
-png(filename="plot4.png", width=480, height=480,bg="transparent")
+png(filename="./plot4.png", width=480, height=480,bg="transparent")
 
 # Start Plotting 2x2
 par(mfcol=c(2,2),
@@ -94,7 +93,7 @@ legend("topright",
        bty="n",
        col=c("black","red","blue"),
        legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
-       cex=1.00)
+       cex=1.0)
 
 # PLOT 1,2
 plot(1:len,data$Voltage,
