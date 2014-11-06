@@ -2,7 +2,6 @@
 # Course Project 1
 # Plot 3
 # Plot three time-series plots in different colors, and a legend
-# Givens, 04Nov2014
 
 # LIBRARIES
 # dplyr is ASSUMED to be an installed package
@@ -48,7 +47,7 @@ data <- mutate(data,
 # data point.
 
 # OPEN png graphics device
-png(filename="plot3.png", width=480, height=480,bg="transparent")
+png(filename="./plot3.png", width=480, height=480,bg="transparent")
 
 # PLOT TIME SERIES
 len = nrow(data)
