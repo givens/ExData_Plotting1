@@ -1,11 +1,11 @@
 # Exploratory Data Analysis
 # Course Project 1
 # Plot 3
-# Plot three time-series of sub-metering in different colors
+# Plot three time-series plots in different colors, and a legend
 # Givens, 04Nov2014
 
 # LIBRARIES
-# dplyr is assumed to be an installed package
+# dplyr is ASSUMED to be an installed package
 library(dplyr)
 
 # DOWNLOAD DATA FILE
@@ -28,14 +28,32 @@ data <- mutate(data,
                Sub_metering_2=as.numeric(Sub_metering_2),
                Sub_metering_3=as.numeric(Sub_metering_3))
 
+# WHAT I NOTICE about Roger Peng's 3rd Plot
+# Background is transparent.
+# Three time-series plots
+# Legend exists with border
+# X-axis is relabled. 
+# Y-label exists
+
+# A NOTE ABOUT X-AXIS
+# The x-axis is Thu, Fri, and Sat.
+# The starting points are
+# THURSDAY at 1
+# FRIDAY at 1441
+# SATURDAY at 2881
+# where the number of data points is 2880.
+# I confirmed Thursday and Friday start at these rows.
+# Saturday starts outside the range because the data
+# is Thursday and Friday only. Saturday is the next
+# data point.
+
 # OPEN png graphics device
-png(filename="plot3.png",bg="transparent")
-# being explicit about width and height being 480 x 480
+png(filename="plot3.png", width=480, height=480,bg="transparent")
 
 # PLOT TIME SERIES
 len = nrow(data)
 plot(1:len,data$Sub_metering_1,
-     xlab="",
+     xlab=NA,
      ylab="Energy sub metering",
      xaxt="n",
      type="n")
@@ -44,11 +62,9 @@ lines(1:len,data$Sub_metering_2,col="red")
 lines(1:len,data$Sub_metering_3,col="blue")
 
 # Label X axis
-axis(1,c(1,len/2,len),c("Thu","Fri","Sat"))
+axis(1,c(1,len/2+1,len+1),c("Thu","Fri","Sat"))
 
 # Add legend
-# look at cex -- character expansion factor
-# reduce size of legend text
 legend("topright",lty="solid",
        col=c("black","red","blue"),
        legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
