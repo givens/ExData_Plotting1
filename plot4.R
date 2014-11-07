@@ -31,17 +31,18 @@ data <- mutate(data,
                Sub_metering_3=as.numeric(Sub_metering_3))
 
 # WHAT I NOTICE about Roger Peng's 4th Plot
-# Background is transparent.
+# Background is transparent (hatched or gray pattern).
 # Plot is 2x2 subplots.
 # Label text has a cex of 1.0.
 # Axis text has a cex of 1.0.
 # Legend text has a cex of 1.0.
 # Legend does not have border.
 # Some labels have changed.
+# Subplots are not square.
 
 # A NOTE ABOUT X-AXIS
 # The x-axis is Thu, Fri, and Sat.
-# The starting points are
+# The location of the x-tick marks are
 # THURSDAY at 1
 # FRIDAY at 1441
 # SATURDAY at 2881
