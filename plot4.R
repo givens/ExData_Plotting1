@@ -44,6 +44,11 @@ data <- mutate(data,
 # Some labels have changed.
 # Plot boxes are not square.
 
+# I checked plot by generating a 504 x 504 image and checking
+# against his 504 x 504 image.  I regenerated the plot at
+# 480 x 480 per specification.  So, the plot you see is
+# 480 x 480.
+
 # A NOTE ABOUT X-AXIS
 # The x-axis is Thu, Fri, and Sat.
 # The location of the x-tick marks are
