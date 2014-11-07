@@ -28,15 +28,16 @@ data <- mutate(data,
                Sub_metering_3=as.numeric(Sub_metering_3))
 
 # WHAT I NOTICE about Roger Peng's 3rd Plot
-# Background is transparent.
+# Background is transparent (hatched or gray pattern).
 # Three time-series plots
 # Legend exists with border
 # X-axis is relabled. 
-# Y-label exists
+# Y-label exists.
+# Plot box is square.
 
 # A NOTE ABOUT X-AXIS
 # The x-axis is Thu, Fri, and Sat.
-# The starting points are
+# The location of the x-tick marks are
 # THURSDAY at 1
 # FRIDAY at 1441
 # SATURDAY at 2881

@@ -30,6 +30,10 @@ data <- mutate(data,
                Sub_metering_2=as.numeric(Sub_metering_2),
                Sub_metering_3=as.numeric(Sub_metering_3))
 
+# I compare two blobs
+# https://github.com/givens/ExData_Plotting1/blob/master/plot4.png
+# https://github.com/givens/ExData_Plotting1/blob/master/figure/unnamed-chunk-5.png
+
 # WHAT I NOTICE about Roger Peng's 4th Plot
 # Background is transparent (hatched or gray pattern).
 # Plot is 2x2 subplots.
@@ -38,7 +42,7 @@ data <- mutate(data,
 # Legend text has a cex of 1.0.
 # Legend does not have border.
 # Some labels have changed.
-# Subplots are not square.
+# Plot boxes are not square.
 
 # A NOTE ABOUT X-AXIS
 # The x-axis is Thu, Fri, and Sat.

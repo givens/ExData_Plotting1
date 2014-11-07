@@ -25,14 +25,15 @@ data <- filter(data,grepl("[12]/2/2007",data$Date))
 data <- mutate(data,Global_active_power=as.numeric(Global_active_power))
 
 # WHAT I NOTICE about Roger Peng's 2nd Plot
-# Background is transparent.
-# One time-series plot
-# X-axis is relabled. 
+# Background is transparent (hatched or gray pattern).
+# A time-series plot
+# X-axis is re-labled. 
 # Y-label exists
+# Plot box is square
 
 # A NOTE ABOUT X-AXIS
 # The x-axis is Thu, Fri, and Sat.
-# The starting points are
+# The location of the x-tick marks are
 # THURSDAY at 1
 # FRIDAY at 1441
 # SATURDAY at 2881
