@@ -1,7 +1,7 @@
 # Exploratory Data Analysis
 # Course Project 1
 # Plot 4
-# Plot two-by-two grid of plots
+# Plot two-by-two grid of subplots
 
 # LIBRARIES
 # dplyr is ASSUMED to be an installed package
@@ -15,7 +15,9 @@ library(dplyr)
 # LOAD DATA
 # Read first 70000 rows, which contains relevant rows
 # alternately use readline to discover appropriate dates
-data <- read.csv("./household_power_consumption.txt",nrows=70000,sep=";",
+data <- read.csv("./household_power_consumption.txt",
+                 nrows=70000,
+                 sep=";",
                  stringsAsFactors=F)
 
 # FILTER RELEVANT ROWS using regex
@@ -44,25 +46,27 @@ data <- mutate(data,
 # Some labels have changed.
 # Plot boxes are not square.
 
-# I checked plot by generating a 504 x 504 image and checking
-# against his 504 x 504 image.  I regenerated the plot at
-# 480 x 480 per specification.  So, the plot you see is
-# 480 x 480.
+# Some subtle differences appear due to different sized plots.
+# His is 504 x 504.  Mine is 480 x 480.  I wanted to my plot
+# at the same size guarantee a match.  I checked my plot by
+# generating a 504 x 504 image and checking it against his
+# 504 x 504 image.  Thes two plots matched.
+# My submitted plot is 480 x 480 per course specifications.
 
 # A NOTE ABOUT X-AXIS
-# The x-axis is Thu, Fri, and Sat.
-# The location of the x-tick marks are
-# THURSDAY at 1
-# FRIDAY at 1441
-# SATURDAY at 2881
+# The x-axis is Thu, Fri, and Sat.  I did this by re-labeling
+# my x-axis.  The location of the x-tick marks are
+# - THURSDAY at 1
+# - FRIDAY at 1441
+# - SATURDAY at 2881
 # where the number of data points is 2880.
 # I confirmed Thursday and Friday start at these rows.
 # Saturday starts outside the range because the data
 # is Thursday and Friday only. Saturday is the next
-# data point.
+# data point, hence, n+1.
 
 # png graphics device
-png(filename="./plot4.png", width=480, height=480,bg="transparent")
+png(filename="./plot4.png",width=480,height=480,bg="transparent")
 
 # Start Plotting 2x2
 par(mfcol=c(2,2),
